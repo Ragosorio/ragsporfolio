@@ -1,0 +1,93 @@
+---
+import AstroIcon from "../icons/Astro.astro";
+import NextJs from "../icons/NextJs.astro";
+import Html from "../icons/Html.astro";
+import Css from "../icons/Css.astro";
+import Javascript from "../icons/Javascript.astro";
+import React from "../icons/React.astro";
+import Tailwind from "../icons/Tailwind.astro";
+
+const TAGS = {
+  ASTROTAG: {
+    name: "Astro",
+    class: "bg-black text-[#fc5e20]",
+    icon: AstroIcon,
+  },
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJs,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-white text-[#e15030]",
+    icon: Html,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-white text-[#1875b6]",
+    icon: Css,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-black text-[#efda5b]",
+    icon: Javascript,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-black text-[#25d9fd]",
+    icon: React,
+  },
+};
+const PROYECTS = [
+  {
+    title: "Kili page",
+    description:
+      "Una landing page creada para un artista guatemalteco, diseñada especialmente para generar más engagement en dispositivos móviles. Inspirada en las canciones de dicho artista y en colores con tonos rosados y cafés, con un estilo de formato de reproducción.",
+    link: "https://kili-nine.vercel.app/",
+    github: "https://github.com/Ragosorio/kili",
+    image: "/projects/kilipage.webp",
+    tags: [TAGS.ASTROTAG, TAGS.TAILWIND, TAGS.HTML, TAGS.CSS],
+  },
+  {
+    title: "Record your Screen",
+    description:
+      "Aplicación web de código abierto para la grabación de pantalla, desarrollada mediante la API de Google Chrome. Presenta una paleta de colores que incluye tonalidades de rojo y verde, destacando su color principal en negro y blanco.",
+    link: "http://record-your-screen.vercel.app/",
+    github: "https://github.com/Ragosorio/Record-your-Screen",
+    image: "/projects/rys.webp",
+    tags: [TAGS.REACT, TAGS.JAVASCRIPT, TAGS.HTML, TAGS.CSS],
+  },
+];
+---
+
+{
+  PROYECTS.map(({ title, description, tags, image }) => (
+    <article class="mb-20">
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-while/10"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${title}`}
+      />
+    </article>
+  ))
+}

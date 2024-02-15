@@ -1,0 +1,30 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCES = [
+  {
+    date: "Actualmente...",
+    title: "CTO de NexaZen Agency",
+    description:
+      "Me presento como el responsable de la dirección tecnológica en NexaZen, una empresa especializada en estrategias de marketing que emplea diversas herramientas, entre las cuales se incluyen anuncios, landing pages, y otras estrategias para la promoción efectiva de productos y servicios.",
+    link: "https://nexa-zen.com",
+  },
+  {
+      date: "Febrero 2024",
+      title: "Trayectoria Formativa",
+      description:
+        "He dedicado más de tres años a la adquisición de conocimientos a través de diversas plataformas educativas, entre las cuales se incluyen destacadas instituciones como Domestika, Platzi y Udemy. Asimismo, he complementado mi formación con estudios de índole más informal mediante recursos disponibles en plataformas como YouTube.",
+      link: "",
+    },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+  {
+    EXPERIENCES.map((experience) => (
+      <li class="mb-10 ms-4">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
